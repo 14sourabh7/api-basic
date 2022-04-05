@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <?php
+    foreach ($bookresults as $key => $value) {
+        $cover = $value['cover_i'];
+    ?>
+        <section> <a href="/book/details?cover=<?php echo $cover . "&key=" . $key . "&isbn=" . $value['isbn'][0] ?>">
+                <div class="container py-3">
+                    <div class="card">
+                        <div class="row ">
+                            <div class="col-md-4">
+
+                                <img src="<?php echo "https://covers.openlibrary.org/b/id/" . $cover . "-M.jpg" ?>" style='width:200px'>
+
+                            </div>
+                            <div class="col py-3">
+                                <div class="card-block">
+                                    <h4 class="card-title fw-bold"><?php echo $value['title']; ?></h4>
+                                    <p class="card-text">by - <?php foreach ($value['author_name'] as $key => $value) {
+                                                                    echo $value . ", ";
+                                                                }  ?>
+                                    </p>
+                                    <p class="card-text text-muted">First published in
+                                        <?php echo $bookresults[$key]['first_publish_year']; ?>
+                                    </p>
+                                    <p class="card-text">
+                                        Total edtions - <?php echo $bookresults[$key]['edition_count'] ?></p>
+                                    <p class="card-text text-muted">subject - <?php foreach ($bookresults[$key]['subject'] as $key => $value) {
+                                                                                    echo $value . ", ";
+                                                                                } ?></p>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </a>
+        </section>
+    <?php
+
+    } ?>
+</body>
+<script src="../public/assets/js/book.js"></script>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/assets/css/details.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="section about-section gray-bg" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img width="100%" src="<?php echo "https://covers.openlibrary.org/b/id/" . $cover . "-L.jpg" ?>" title="" alt="">
+                </div>
+                <div class="about-text go-to col-6 counter">
+                    <h3 class="dark-color"><?php echo $details['details']['title']; ?></h3>
+                    <h6 class="theme-color lead"><?php foreach ($addDetails["author_name"] as $key => $value) {
+                                                        echo $value . ", ";
+                                                    } ?></h6>
+
+                    <div class="media">
+                        <label>Languages - </label>
+                        <p class='text-primary'><?php $c = 0;
+                                                foreach ($addDetails["language"] as $key => $value) {
+                                                    echo $value . ", ";
+                                                    $c++;
+                                                    if ($c == 5) break;
+                                                } ?></p>
+                    </div>
+                    <div class="media">
+                        <label>Published in - <?php echo $addDetails["first_publish_year"] ?> </label>
+                    </div>
+                    <div class="media">
+                        <label>Publisher - <?php $c = 0;
+                                            foreach ($addDetails["publisher"] as $key => $value) {
+                                                echo $value . ", ";
+                                                $c++;
+                                                if ($c == 5) break;
+                                            } ?> </label>
+                    </div>
+                    <div class="media">
+                        <label>Languages - <?php $c = 0;
+                                            foreach ($addDetails["language"] as $key => $value) {
+                                                echo $value . ", ";
+                                                $c++;
+                                                if ($c == 5) break;
+                                            } ?> </label>
+                    </div>
+                    <div class="media">
+                        <label>publisher_facet - <?php $c = 0;
+                                                    foreach ($addDetails["publisher_facet"] as $key => $value) {
+                                                        echo $value . ", ";
+                                                        $c++;
+                                                        if ($c == 5) break;
+                                                    } ?> </label>
+                    </div>
+                    <hr>
+                    <div>
+                        <p>
+                            <a href="/"><button type="submit" class='btn btn-danger'>Go to Search</button> </a>
+                            <a href="https://www.google.co.in/books/edition/<?php echo $details['details']['title'] . "/" . $details['details']['identifiers']['google'] ?>?hl=en"> <button type="submit" class='btn btn-primary'>Open Google Books</button></a>
+                        </p>
+
+                        <p class='mt-3'>
+                            Some more information.... <br>
+                            <?php foreach ($addDetails['subject'] as $key => $value) {
+                                echo $value . ", ";
+                            } ?></p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </section>
+</body>
+
+</html>
