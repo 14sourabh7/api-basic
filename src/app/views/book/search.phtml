@@ -31,8 +31,9 @@
     <?php
     foreach ($bookresults as $key => $value) {
         $cover = $value['cover_i'];
+        $count = count($value['isbn']) - 1;
     ?>
-        <section> <a href="/book/details?cover=<?php echo $cover . "&key=" . $key . "&isbn=" . $value['isbn'][0] ?>">
+        <section> <a href="/book/details?cover=<?php echo $cover . "&key=" . $key . "&isbn=" . $value['isbn'][$count] ?>">
                 <div class="container py-3">
                     <div class="card">
                         <div class="row ">
