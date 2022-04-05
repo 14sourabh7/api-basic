@@ -65,8 +65,8 @@ $container->set(
     true
 );
 
-
-
+//di for apihelper
+$container->set('api', new \App\Components\Apihelper());
 
 
 //response

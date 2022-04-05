@@ -9,6 +9,19 @@
 </head>
 
 <body>
+
+    <div class="row">
+        <form action="" method="get" class='form mx-auto mt-3 p-3'>
+            <div class="input-group rounded">
+                <input type="search" class="form-control rounded" name='book' placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <button type="submit">
+                    <span class="input-group-text border-0" id="search-addon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </button>
+            </div>
+        </form>
+    </div>
     <?php
     foreach ($bookresults as $key => $value) {
         $cover = $value['cover_i'];
